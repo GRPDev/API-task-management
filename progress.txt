@@ -1,0 +1,8 @@
+Step 1:     model-done  -test-NA
+Step 2:     usercreate  -test OK
+            login       -test OK
+            logout      -test OK
+            createtask  -test NOK -> fix non_existent_executor -> must assign to None
+                                    must work on serializer def validate
+                                    createtask.py does not work in case executor id does not exist -> should set to None
+                                    test does not pass
