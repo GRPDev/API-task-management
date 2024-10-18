@@ -95,4 +95,37 @@ This is a Django-based RESTful API for managing tasks and user assignments. It i
 - **GET / POST**: Clears all tasks and users from the database for testing purposes.
   - Success response: 200 OK with a message (`{'message': 'All data cleared successfully'}`).
 
+## Installation and Setup
 
+### 1. Clone the repository:
+
+```bash
+git clone https://github.com/yourusername/task-management-api.git
+```
+
+### 2. Navigate to the project directory:
+```bash
+cd task-management-api
+```
+### 3. Create and activate a virtual environment:
+```bash
+python -m venv env
+source env/bin/activate  # On Windows: env\Scripts\activate
+```
+### 4. Install the required dependencies:
+```bash
+pip install -r requirements.txt
+```
+### 5. Run the migrations:
+```bash
+python manage.py migrate
+```
+### 6. Create a superuser for admin access:
+```bash
+python manage.py createsuperuser
+```
+### 7. Run the development server:
+```bash
+python manage.py runserver
+```
+The API should be running locally, and you can access it at http://127.0.0.1:8000/.
