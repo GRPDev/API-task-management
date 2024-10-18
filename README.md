@@ -114,7 +114,7 @@ source env/bin/activate  # On Windows: env\Scripts\activate
 ```
 ### 4. Install the required dependencies:
 ```bash
-pip install -r requirements.txt
+pip install -r req.txt
 ```
 ### 5. Run the migrations:
 ```bash
@@ -129,3 +129,21 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 The API should be running locally, and you can access it at http://127.0.0.1:8000/.
+
+## Configuration
+
+### Setting Up the Secret Key
+
+This project uses a secret key for cryptographic signing. You must configure this key for the application to run properly. Here’s how to set it up:
+
+1. **Generate a Secret Key**: You can generate a new secret key using the following command:
+   ```bash
+   python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+   
+2. **Create a .env File**: In the project root directory (where manage.py is located), create a file named ``.env``
+
+3. **Add the Secret Key to the .env File**: Open the .env file and add the following line, replacing your-generated-secret-key with the key you generated:
+```plaintext
+DJANGO_SECRET_KEY='your-generated-secret-key'
+```
+4. **Add the .env File to .gitignore**: Ensure that the ``.env`` file is included in your ``.gitignore`` to prevent it from being pushed to GitHub, which could expose your secret key.
