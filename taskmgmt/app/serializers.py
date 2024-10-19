@@ -36,9 +36,7 @@ class TaskCreateSerializer(serializers.ModelSerializer):
     def validate(self, data):
         creator = self.context['request'].user
         executor = data.get('executor')
-        if creator == executor:
-            #TEST_NIGHTMARE
-            #raise serializers.ValidationError({"error": "The creator of a task cannot be its executor"}) 
+        if creator == executor: 
             raise serializers.ValidationError("The creator of a task cannot be its executor", code='error')
         return data
 
@@ -84,6 +82,11 @@ class UnassignedTasksSerializer(serializers.ModelSerializer):
         model = Task
         fields = ['executor', 'name', 'cost', 'deadline']
 
+class MarkTaskDoneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Task
+        fields = ['executor', 'name', 'cost', 'deadline']
+
 #additional
 
 class UserStatusSerializer(serializers.ModelSerializer):
@@ -94,7 +97,5 @@ class UserStatusSerializer(serializers.ModelSerializer):
         fields = ['id', 'username', 'email', 'is_logged_in']
 
     def get_is_logged_in(self, obj):
-        # This method will need to be adjusted to reflect if the user is logged in
-        # Here we're assuming you want to check if the current request user is logged in
         request = self.context.get('request')
         return request and request.user.is_authenticated

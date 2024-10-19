@@ -1,8 +1,8 @@
 import requests, json
 
 # Base URL for your API
-#BASE_URL = 'http://127.0.0.1:8000/app/'
-BASE_URL = 'http://159.223.7.214/app/' #prod
+BASE_URL = 'http://127.0.0.1:8000/app/'
+#BASE_URL = 'http://159.223.7.214/app/' #prod
 
 # User details
 user_data = {

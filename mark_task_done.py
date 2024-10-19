@@ -17,11 +17,11 @@ headers = {
 }
 
 # Sending the PATCH request to create the task
-response = requests.patch(BASE_URL + 'become-executor/282/', headers=headers) #use <int:task_id>
+response = requests.patch(BASE_URL + 'mark-task-done/282/', headers=headers) #use <int:task_id>
 
 # Check the response
-if response.status_code == 201:
-    print('Task created successfully:', response.json())
+if response.status_code == 200:
+    print('Task updated successfully:', response.json())
 else:
-    print('Failed to create task:', response.status_code, response.json())
+    print('Failed to update task:', response.status_code, response.json())
     

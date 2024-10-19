@@ -10,4 +10,4 @@ class Task(models.Model):
     deadline = models.DateTimeField() #(blank=False, null=True) #review this decision, deadline should not be empty, but leave null to avoid potential database issues
 
     def __str__(self):
-        return f'Task: {self.name} - Due: {self.deadline} - Assigned to:{self.executor}'
+        return f'Task: {self.name} - Task ID: {self.id}- Due: {self.deadline} - Assigned to:{self.executor}'

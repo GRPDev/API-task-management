@@ -58,6 +58,7 @@ class MarkTaskDoneAPIViewTestCase(unittest.TestCase):
             'deadline': deadline,
             'executor': executor_id
         })
+        print(f"Task creation response: {response.json()}")  # Log task creation response
         self.assertEqual(response.status_code, 201)
         return response.json().get('id')
 

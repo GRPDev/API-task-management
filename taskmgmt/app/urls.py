@@ -15,9 +15,6 @@ urlpatterns = [
     path('user-tasks-stats/', UserTasksStatsAPIView.as_view(), name='user-tasks-stats'),
     path('unassigned-tasks/', UnassignedTasksAPIView.as_view(), name='unassigned-tasks'),
     path('become-executor/<int:task_id>/', BecomeExecutorAPIView.as_view(), name='become-executor'),
+    path('mark-task-done/<int:task_id>/', MarkTaskDoneAPIView.as_view(), name='mark-task-done'),
 ]
 
-#backlog
-"""     
-        
-    path('mark-task-done/<int:task_id>/', MarkTaskDoneAPIView.as_view(), name='mark-task-done'), """
